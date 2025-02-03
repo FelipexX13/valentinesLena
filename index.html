@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: radial-gradient(circle, #ff758c, #ff7eb3, #f1a7e3);
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 500px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        #yesButton {
+            background-color: #ff8c94;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 140, 148, 0.4);
+        }
+
+        #yesButton:hover {
+            background-color: #ff5761;
+            transform: scale(1.1);
+        }
+
+        #noButton {
+            background-color: #6c757d;
+            color: white;
+            position: absolute;
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #noButton:hover {
+            transform: scale(1.1);
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #result img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #result p {
+            font-size: 1.5em;
+            margin-top: 15px;
+            color: #fff;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Me darías el honor de ser tu valentín? 💘</h1>
+        <button id="yesButton">¡Sí! 💖</button>
+        <button id="noButton">No 😢</button>
+        <div id="result" class="hidden">
+            <img src="/images/cinamon.png" alt="Valentine's Day" />
+            <p>iiiiiiiiiiiii sabia que ibas a decir que sí mi amor 💕</p>
+            <p>Me haces demasiado feliz y quiero que seas tú por siempre</p>-
+            <p>Tam</p>
+            <p>tu noviooooooo, Felipe</p>
+        </div>
+    </div>
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const result = document.getElementById('result');
+
+        // Move "No" button to a random position on hover
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+
+        // Show result and hide "No" button on "Yes" button click
+        yesButton.addEventListener('click', () => {
+            result.classList.remove('hidden'); // Show result
+            noButton.style.display = 'none';  // Hide "No" button
+        });
+    </script>
+</body>
+</html>
